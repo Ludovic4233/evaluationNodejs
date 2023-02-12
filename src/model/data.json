@@ -1,0 +1,92 @@
+{
+    "france": [
+        {
+            "id": 1,
+            "name": "marseille"
+        },
+        {
+            "id": 2,
+            "name": "lyon"
+        },
+        {
+            "id": 3,
+            "name": "paris saint-germain"
+        },
+        {
+            "id": 4,
+            "name": "rc lens"
+        }
+    ],
+    "angleterre": [
+        {
+            "id": 1,
+            "name": "manchester united"
+        },
+        {
+            "id": 2,
+            "name": "arsenal"
+        },
+        {
+            "id": 3,
+            "name": "chelsea"
+        },
+        {
+            "id": 4,
+            "name": "liverpool"
+        }
+    ],
+    "espagne": [
+        {
+            "id": 1,
+            "name": "barcelone"
+        },
+        {
+            "id": 2,
+            "name": "real madrid"
+        },
+        {
+            "id": 3,
+            "name": "atletico de madrid"
+        },
+        {
+            "id": 4,
+            "name": "fc seville"
+        }
+    ],
+    "allemagne": [
+        {
+            "id": 1,
+            "name": "bayern munich"
+        },
+        {
+            "id": 2,
+            "name": "borussia dortmund"
+        },
+        {
+            "id": 3,
+            "name": "bayer leverkusen"
+        },
+        {
+            "id": 4,
+            "name": "borussia monchengladbach"
+        }
+    ],
+    "italie": [
+        {
+            "id": 1,
+            "name": "juventus"
+        },
+        {
+            "id": 2,
+            "name": "milan ac"
+        },
+        {
+            "id": 3,
+            "name": "naples"
+        },
+        {
+            "id": 4,
+            "name": "inter milan"
+        }
+    ]
+}
