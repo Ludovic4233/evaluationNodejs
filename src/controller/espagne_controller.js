@@ -19,7 +19,7 @@ exports.createData = (request, response) => {
                 //on ajoute dans ce tableau (push) un objet avec un id = 1 et un name = au name du body de la requète
                 existingData.espagne.push({
                     "id":1,
-                    "name":request.body.name
+                    "name":request.body.name.toLowerCase()
                 })
                 //sinon
             }else{
@@ -30,7 +30,7 @@ exports.createData = (request, response) => {
                 //on ajoute dans le tableau espagne un objet avec un name = name du body de la requète et un id = l'id du dernier objet du tableau + 1
                 existingData.espagne.push({
                     "id": lastData.id+1,
-                    "name": request.body.name
+                    "name": request.body.name.toLowerCase()
                 })
             }
             //on écrit les données modifier dans le fichier data.json
@@ -121,7 +121,7 @@ exports.getDataByName = (request, response) => {
             const existingData = JSON.parse(data)
             //on stock dans une constante l'objet du tableau espagne dont le name = name de la requète
             const dataByName = existingData.espagne.find(
-                (obj) => obj.name === request.params.name
+                (obj) => obj.name === request.params.name.toLowerCase()
             )
             //si on ne trouve pas d'objet dont le name = name de la requète
             if(!dataByName){
@@ -162,7 +162,7 @@ exports.updateData = (request, response) => {
                 })
             }else{
                 //on remplace le name de l'objet dont l'id = id de la requète par le name du body de la requète
-                dataById.name = request.body.name
+                dataById.name = request.body.name.toLowerCase()
                 //on écrit les données mise à jour dans le fichier data.json
                 fs.writeFile("./src/model/data.json", JSON.stringify(existingData), (writeErr) => {
                     //si il ya une erreur lors l'écriture du fichier

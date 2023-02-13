@@ -18,7 +18,7 @@ exports.createData = (request, response) => {
                 //on ajoute un objet avec un id=1 et un name = à la requète comme souhaité
                 existing_data.angleterre.push({
                     "id":1,
-                    "name":request.body.name
+                    "name":request.body.name.toLowerCase()
                 })
                 //sinon
             }else{
@@ -29,7 +29,7 @@ exports.createData = (request, response) => {
                     //on ajoute dans le tableau un nouvel objet avec un id égal à l'id du dernier objet du tableau plus 1
                     existing_data.angleterre.push({
                         "id":dataById.id+1,
-                        "name":request.body.name
+                        "name":request.body.name.toLowerCase()
                     })
                     //on réécrit la donnée dans le fichier data.json avec existing_data qui contient le body de la requète en plus
                 }
@@ -119,7 +119,7 @@ exports.getDataByName = (request, response) => {
             const dataName = JSON.parse(data)
             // on stock dans une constante l'objet du tableau clubs possèdant un name égal au name de la requète
             const dataByName = dataName.angleterre.find(
-                (obj) => obj.name === request.params.name
+                (obj) => obj.name === request.params.name.toLowerCase()
             )
             //si on ne trouve pas d'objet avec ce name
             if(!dataByName){
@@ -161,7 +161,7 @@ exports.updateData = (request, response) => {
                 })
             }else{
                 //on change le name de l'objet et on lui assigne le name de la requète du body
-                dataById.name = request.body.name
+                dataById.name = request.body.name.toLowerCase()
                 //on écrit les données modifier dans data.json
                 fs.writeFile("./src/model/data.json", JSON.stringify(existingData), (writeErr) => {
                     //si il y a une erreur d'écriture 

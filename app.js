@@ -8,11 +8,11 @@ const app = express();
  // Pour faire l'appli express devra utiliser bodyParser
  app.use(bodyParser.json());
 //import des routes de l'application
- const franceRoutes = require('./src/routes/franceRoute');
- const angleterreRoutes = require('./src/routes/angleterreRoute');
- const espagneRoutes = require('./src/routes/espagneRoute');
- const allemagneRoutes = require('./src/routes/allemagneRoute');
- const italieRoutes = require('./src/routes/italieRoute');
+ const franceRoutes = require('./src/routes/france_route');
+ const angleterreRoutes = require('./src/routes/angleterre_route');
+ const espagneRoutes = require('./src/routes/espagne_route');
+ const allemagneRoutes = require('./src/routes/allemagne_route');
+ const italieRoutes = require('./src/routes/italie_route');
 
 //c'est un route par défault qui renvois un chaine de caractères
 //GET "/"
@@ -27,9 +27,6 @@ app.use(angleterreRoutes);
 app.use(espagneRoutes);
 app.use(allemagneRoutes);
 app.use(italieRoutes);
-
-
-
 
 
 // On export la constante app pour la rendre utilisable dans d'autres parties du code

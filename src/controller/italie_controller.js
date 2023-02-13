@@ -22,13 +22,13 @@ exports.createData = (request, response) => {
                 //on ajoute dans le tableau italie un objet avec un id = 1 et un name = la requète du body
                 existingData.italie.push({
                     "id":1,
-                    "name":request.body.name
+                    "name":request.body.name.toLowerCase()
                 })
             }else{
                 //sinon on ajoute dans le tableau italie un objet avec un id = l'id du dernier objet du tableau +1 et un name = la requète du body
                 existingData.italie.push({
                     "id":lastData.id+1,
-                    "name":request.body.name
+                    "name":request.body.name.toLowerCase()
                 })
             }
             //on écrit le fichier data.json avec les donnés misent à jour
@@ -122,7 +122,7 @@ exports.getDataByName = (request, response) => {
             const existingData = JSON.parse(data)
             //on stock dans dataName le premier objet dont le name = au name de la requète
             const dataName = existingData.italie.find(
-                (obj) => obj.name === request.params.name
+                (obj) => obj.name === request.params.name.toLowerCase()
             )
             //si cet objet n'existe pas
             if(!dataName){
@@ -162,7 +162,7 @@ exports.updateData = (request, response) => {
                     message:"Pas d'objet avec cet id"
                 })
             }else{
-                dataById.name = request.body.name
+                dataById.name = request.body.name.toLowerCase()
                 fs.writeFile('./src/model/data.json', JSON.stringify(existingData), (writeErr) => {
                     if(writeErr){
                         response.status(500).json({

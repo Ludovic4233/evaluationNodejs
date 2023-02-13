@@ -13,19 +13,23 @@ exports.createData = (request, response) => {
         }else{
             //on récupère les données et on les stock dans existingData sous forme d'objet
             const existingData = JSON.parse(data)
+            //Si la taille du tableau allemagne = 0 (c-à-dire si il est vide)
             if(existingData.allemagne.length === 0){
+                //on ajoute dans ce tableau un objet avec un id = 1 et un name = requète du body
                 existingData.allemagne.push({
                     "id":1,
-                    "name":request.body.name
+                    "name":request.body.name.toLowerCase()
                 })
+                //sinon
             }else{
                 //Dans existingData on récupère le dernier objet du tableau allemagne et on le stock dans lastData
                 const lastData = existingData.allemagne.findLast(
                     (obj) => obj.id
                 )
+                //on ajoute dans ce tableau un objet avec un id = l'id du dernier objet+1 et un name = requète du body
                 existingData.allemagne.push({
                     "id":lastData.id+1,
-                    "name":request.body.name
+                    "name":request.body.name.toLowerCase()
                 }) 
             }
             //on écrit les données misent à jour dans data.json
@@ -112,7 +116,7 @@ exports.getDataByName = (request, response) => {
             const existingData = JSON.parse(data);
             //on stock dans dataByName l'objet du tableau allemagne dont le name = le name de la requète
             const dataByName = existingData.allemagne.find(
-                (obj) => obj.name === request.params.name
+                (obj) => obj.name === request.params.name.toLowerCase()
             )
             //si on ne trouve pas d'objet avec ce name
             if(!dataByName){
@@ -151,7 +155,7 @@ exports.updateData = (request, response) => {
                 })
             }else{
                 //on change le name de l'objet et on lui assigne le name de la requète du body
-                dataById.name = request.body.name
+                dataById.name = request.body.name.toLowerCase()
                 //on écrit les données modifier dans data.json
                 fs.writeFile('./src/model/data.json', JSON.stringify(existingData), (writeErr) => {
                     //si il y a une erreur d'écriture

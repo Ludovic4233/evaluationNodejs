@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const espagneController = require("../controller/espagneController");
+const espagneController = require("../controller/espagne_controller");
 
 //création de le route permettant d'accéder au contenu du fichier data.json
 //GET: "/espagne"

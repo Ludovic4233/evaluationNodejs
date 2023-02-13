@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const franceController = require('../controller/franceController');
+const franceController = require('../controller/france_controller');
 
 //définir la route qui permet d'ajouter une donnée ds le tableau france
 //POST "/france"

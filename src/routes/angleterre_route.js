@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const angleterreController = require('../controller/angleterreController');
+const angleterreController = require('../controller/angleterre_controller');
 
 //création de la route qui mène au contenu du tableau clubs dans le fichier data.json
 //GET "/angleterre"
